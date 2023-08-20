@@ -2,11 +2,16 @@
 const tableBody = document.getElementById('table__body');
 const numberOfColumns = document.querySelectorAll("table thead tr th").length - 1;
 const calculateBtn = document.querySelector('.calculate__btn');
+const resetBtn = document.querySelector('.reset__btn');
 const statusAlert = document.querySelector('.status__alert');
 
 calculateBtn.addEventListener('click', () => {
     let result = calculate();
     showResult(result);
+})
+
+resetBtn.addEventListener('click', () => {
+    resetTableValues();
 })
 
 const getMonthName = (monthNumber) => {
@@ -16,7 +21,7 @@ const getMonthName = (monthNumber) => {
 };
 
 const addInputs = (month) => {
-    const columnsFromEachRow =  [...Array(numberOfColumns)];
+    const columnsFromEachRow = [...Array(numberOfColumns)];
     return columnsFromEachRow.map((column, index) => {
         const inputToAdd = `<td>
         <input
@@ -34,7 +39,7 @@ const getCorrectDefaultValue = (month, index) => {
     return isEven ? flujoDeCaja[month]['ingresos'] : flujoDeCaja[month]['egresos'];
 }
 
-function calculate (){
+function calculate() {
     let inputs = [...document.querySelectorAll('input')];
     let sumaIngresos = 0;
     let sumaEgresos = 0;
@@ -52,33 +57,45 @@ function calculate (){
 
 function showResult(result) {
 
-    if(statusAlert.children[0]){
-        statusAlert.removeChild(statusAlert.children[0]);
-    }
-    
+    removePreviousResult();
+
     const p = document.createElement("p");
     const loss = `La empresa generó pérdidas por: ${result}`;
     const revenue = `La empresa obtuvo una ganancia de: ${result}`;
     let finalMessage = "La empresa obtuvo el mismo número de ingresos que de egresos";
-    
+
     if (result != 0) {
         finalMessage = result > 0 ? revenue : loss;
     }
-    
+
     p.textContent = finalMessage;
     statusAlert.append(p);
 }
 
+function removePreviousResult() {
+    if (statusAlert.children[0]) {
+        statusAlert.removeChild(statusAlert.children[0]);
+    }
+}
+
+function resetTableValues() {
+
+    removePreviousResult();
+
+    const inputsToReset = document.querySelectorAll('input');
+    inputsToReset.forEach(input => input.value = '0');
+}
+
 (() => {
 
-    for(let month = 0; month < 12; month ++ ){
+    for (let month = 0; month < 12; month++) {
 
         let monthName = getMonthName(month);
-        tableBody.innerHTML += 
-        `<tr>
-            <td class="table__month">
+        tableBody.innerHTML +=
+            `<tr>
+            <th scope="row" class="table__month">
             ${monthName}
-            </td>
+            </th>
             ${addInputs(month)}
         </tr>`;
     }

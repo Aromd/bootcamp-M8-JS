@@ -1,32 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 1</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <h1>Cálculo de flujo de caja</h1>
-    <table>
-        <thead>
-            <tr>
-                <th scope="col">Periodo</th>
-                <th scope="col">Ingreso</th>
-                <th scope="col">Egreso</th>
-            </tr>
-        </thead>
-        <tbody id="table__body">
-        </tbody>
-    </table>
+    <main>
+        <h1>Cálculo de flujo de caja</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Periodo</th>
+                    <th scope="col">Ingreso</th>
+                    <th scope="col">Egreso</th>
+                </tr>
+            </thead>
+            <tbody id="table__body">
+            </tbody>
+        </table>
 
-    <div class="status__alert">
-    </div>
+        <div class="status__alert">
+        </div>
 
-    <button class="calculate__btn">Calcular</button>
+        <div class="btn__container">
+            <button class="btn calculate__btn">Calcular</button>
+            <button class="btn reset__btn">Resetear tabla</button>
+        </div>
+
+    </main>
 
     <script src="utils/defaultData.js"></script>
     <script src="js/index.js"></script>
 </body>
+
 </html>
