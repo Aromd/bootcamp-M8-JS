@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main>
+        <h1>Cálculo de interés</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Capital</th>
+                    <th scope="col">Plazo (en días)</th>
+                    <th scope="col">Taza (%)</th>
+                    <th scope="col">Interés</th>
+                </tr>
+            </thead>
+            <tbody id="table__body">
+            </tbody>
+        </table>
+
+        <div class="btn__container">
+            <button class="btn calculate__btn">Calcular Interés</button>
+            <button class="btn reset__btn">Resetear tabla</button>
+        </div>
+
+    </main>
+
+    <script src="../utils/defaultData.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

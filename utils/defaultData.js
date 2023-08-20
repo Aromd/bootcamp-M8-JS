@@ -48,3 +48,19 @@ const flujoDeCaja = [
       egresos: 348133,
     },
   ];
+
+
+  const creditOffers = [
+    {
+      name: "Plan 001",
+      valores: [150000, 30, 15]
+    },
+    {
+      name: "Plan 002",
+      valores: [300000, 180, 10]
+    },
+    {
+      name: "Plan 003",
+      valores: [485000, 60, 23]
+    },
+  ]
