@@ -52,10 +52,14 @@ function calculate (){
 
 function showResult(result) {
 
-    let p = document.createElement("p");
+    if(statusAlert.children[0]){
+        statusAlert.removeChild(statusAlert.children[0]);
+    }
+    
+    const p = document.createElement("p");
+    const loss = `La empresa generó pérdidas por: ${result}`;
+    const revenue = `La empresa obtuvo una ganancia de: ${result}`;
     let finalMessage = "La empresa obtuvo el mismo número de ingresos que de egresos";
-    const loss = `La empresa generó pérdidas por: ${result}`
-    const revenue = `La empresa obtuvo una ganancia de: ${result}`
     
     if (result != 0) {
         finalMessage = result > 0 ? revenue : loss;
@@ -72,7 +76,7 @@ function showResult(result) {
         let monthName = getMonthName(month);
         tableBody.innerHTML += 
         `<tr>
-            <td class="month">
+            <td class="table__month">
             ${monthName}
             </td>
             ${addInputs(month)}
