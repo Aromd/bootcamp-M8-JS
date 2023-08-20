@@ -7,7 +7,8 @@ const statusAlert = document.querySelector('.status__alert');
 
 calculateBtn.addEventListener('click', () => {
     let result = calculate();
-    showResult(result);
+    let status = showResult(result);
+    console.log(status);
 })
 
 resetBtn.addEventListener('click', () => {
@@ -58,18 +59,21 @@ function calculate() {
 function showResult(result) {
 
     removePreviousResult();
-
+    
     const p = document.createElement("p");
     const loss = `La empresa generó pérdidas por: ${result}`;
     const revenue = `La empresa obtuvo una ganancia de: ${result}`;
     let finalMessage = "La empresa obtuvo el mismo número de ingresos que de egresos";
+    let status = 0;
 
     if (result != 0) {
         finalMessage = result > 0 ? revenue : loss;
+        status = result > 0 ? 1 : -1;
     }
 
     p.textContent = finalMessage;
     statusAlert.append(p);
+    return status;
 }
 
 function removePreviousResult() {
